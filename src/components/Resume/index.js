@@ -1,4 +1,4 @@
-import { Download, Briefcase, Code, Star } from "lucide-react";
+import { Briefcase, Code, Star } from "lucide-react";
 
 export default function Resume() {
   return (

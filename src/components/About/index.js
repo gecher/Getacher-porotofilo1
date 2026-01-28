@@ -1,17 +1,7 @@
 import "../../App.css";
 import DownloadIcon from "@mui/icons-material/Download";
-import * as LottiePlayer from "@lottiefiles/lottie-player";
 
 export default function About() {
-  const getDate = () => {
-    var dob = new Date("08/08/1998");
-    var month_diff = Date.now() - dob.getTime();
-    var age_dt = new Date(month_diff);
-    var year = age_dt.getUTCFullYear();
-    var age = Math.abs(year - 1970);
-    return age;
-  };
-
   return (
     <div id="about" className="min-h-screen bg-[#111828] flex flex-col items-center text-gray-100 text-lg font-normal p-5 sm:ml-[25%]">
       {/* Header */}
