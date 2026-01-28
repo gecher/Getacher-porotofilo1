@@ -86,7 +86,7 @@ export default function Slidebar() {
       {/* Mobile Toggle Button */}
       {isMobile && (
         <button
-          className="fixed top-4 left-4 z-50 text-white bg-black/80 backdrop-blur-sm p-3 rounded-full shadow-lg menu-button transition-all duration-300 hover:scale-110"
+          className="fixed top-4 left-4 z-[60] text-white bg-black/80 backdrop-blur-sm p-3 rounded-full shadow-lg menu-button transition-all duration-300 hover:scale-110"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -106,7 +106,7 @@ export default function Slidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`sidebar fixed top-0 left-0 h-screen bg-gradient-to-b from-[#111328] to-[#0f172a] w-[75%] sm:w-[25%] p-5 z-50 transition-all duration-300 ease-in-out ${
+        className={`sidebar fixed top-0 left-0 h-screen bg-gradient-to-b from-[#111328] to-[#0f172a] w-[75%] sm:w-[25%] p-5 z-40 transition-all duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full sm:translate-x-0"
         } ${isMobile ? 'shadow-2xl' : ''}`}
         role="navigation"
