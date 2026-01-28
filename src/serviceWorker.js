@@ -36,14 +36,24 @@ registerRoute(
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
 );
 
-// Cache CSS, JS, and Web Worker requests with a Stale While Revalidate strategy
+// Cache CSS and Web Worker requests with a Stale While Revalidate strategy
 registerRoute(
   ({ request }) =>
     request.destination === 'style' ||
-    request.destination === 'script' ||
     request.destination === 'worker',
   new StaleWhileRevalidate({
     cacheName: 'static-resources',
+  })
+);
+
+// Cache JavaScript files separately with Network First strategy to avoid caching issues
+registerRoute(
+  ({ request, url }) => {
+    return request.destination === 'script' &&
+           !url.pathname.includes('service-worker');
+  },
+  new StaleWhileRevalidate({
+    cacheName: 'js-resources',
   })
 );
 
