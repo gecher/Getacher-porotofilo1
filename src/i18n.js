@@ -60,7 +60,8 @@ const resources = {
       // Common
       'common.loading': 'Loading...',
       'common.error': 'Something went wrong',
-      'common.retry': 'Try Again'
+      'common.retry': 'Try Again',
+      'common.language': 'Language'
     }
   },
   am: {
@@ -118,7 +119,8 @@ const resources = {
       // Common
       'common.loading': 'በመጫን ላይ...',
       'common.error': 'የሆነ ችግር አጋጥሟል',
-      'common.retry': 'እንደገና ይሞክሩ'
+      'common.retry': 'እንደገና ይሞክሩ',
+      'common.language': 'ቋንቋ'
     }
   }
 };
