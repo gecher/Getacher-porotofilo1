@@ -24,7 +24,7 @@ export default function Display() {
   );
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
+    <div id="main-content" className="bg-gray-900 text-white min-h-screen">
       <Suspense fallback={<LoadingFallback />}>        <Home />
         <About />
         <Resume />
