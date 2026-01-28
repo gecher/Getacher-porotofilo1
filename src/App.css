@@ -74,106 +74,15 @@
   mix-blend-mode: difference;
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px; /* Hidden by default */
-  width: 250px;
-  height: 100%;
-  background-color: black;
-  color: white;
-  transition: left 0.3s ease-in-out;
-  z-index: 1000;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-/* Show Sidebar */
-.sidebar.active {
-  left: 0;
-}
 
-/* Close Button */
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  align-self: flex-end;
-  transition: color 0.3s ease;
-}
 
-.close-btn:hover {
-  color: red;
-}
 
-/* Profile Image */
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-  border: 3px solid white;
-}
 
-/* Navigation Links */
-nav ul {
-  list-style: none;
-  padding: 0;
-}
 
-nav ul li {
-  margin: 15px 0;
-}
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
 
-nav ul li a:hover {
-  color: #00aaff; /* Soft Blue Hover */
-  text-decoration: underline;
-}
 
-/* Social Icons */
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.social-icons a {
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.social-icons a:hover {
-  transform: scale(1.2);
-  color: #00aaff;
-}
-
-/* Toggle Button */
-.toggle-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: none;
-  border: none;
-  font-size: 25px;
-  cursor: pointer;
-  z-index: 1100;
-  color: white;
-}
 
 Prevent Homepage Content from Shifting
 /* .main-content {
