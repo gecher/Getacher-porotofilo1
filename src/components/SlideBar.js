@@ -47,7 +47,7 @@ export default function Slidebar() {
         <div className="nav flex text-white text-lg mt-10 flex-col text-center gap-5">
           <div>
             <img
-              src={require("../assets/images/tt.jpg")}
+              src={require("../assets/images/tt.jpg").default || require("../assets/images/tt.jpg")}
               alt="Getacher Ashebir"
               className="rounded-full border-8 border-stone-600 mx-auto w-[150px]"
             />

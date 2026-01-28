@@ -7,31 +7,38 @@ const Layout = ({ children }) => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
 
-    const cursor = document.querySelector(".cursor");
-    const audio = new Audio(
-      require("../assets/audio/mixkit-fast-double-click-on-mouse-275.mp3")
-    );
+    const handleMouseMove = (e) => {
+      const cursor = document.querySelector(".cursor");
+      if (cursor) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      }
+    };
 
-    window.addEventListener("mousemove", (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    });
+    const handleMouseDown = () => {
+      const cursor = document.querySelector(".cursor");
+      if (cursor) {
+        cursor.style.height = "35px";
+        cursor.style.width = "35px";
+      }
+    };
 
-    window.addEventListener("mousedown", () => {
-      cursor.style.height = "35px";
-      cursor.style.width = "35px";
-      audio.play();
-    });
+    const handleMouseUp = () => {
+      const cursor = document.querySelector(".cursor");
+      if (cursor) {
+        cursor.style.height = "23px";
+        cursor.style.width = "23px";
+      }
+    };
 
-    window.addEventListener("mouseup", () => {
-      cursor.style.height = "23px";
-      cursor.style.width = "23px";
-    });
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
 
     return () => {
-      window.removeEventListener("mousemove", () => {});
-      window.removeEventListener("mousedown", () => {});
-      window.removeEventListener("mouseup", () => {});
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
 
