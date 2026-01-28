@@ -8,6 +8,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useIsMobile } from '../hooks/useMediaQuery';
 import { LazyImage } from './common/Loaders';
+import { ThemeToggle } from '../contexts/ThemeContext';
+import { LanguageToggle } from './common/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 /**
  * SlideBar Component
@@ -17,6 +20,7 @@ export default function Slidebar() {
   const [select, setSelect] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   // Close sidebar when clicking outside (mobile only)
   useEffect(() => {
@@ -44,11 +48,11 @@ export default function Slidebar() {
   }, [isMobile, isOpen]);
 
   const navItems = [
-    { id: 0, text: "Home", href: "#home" },
-    { id: 1, text: "About", href: "#about" },
-    { id: 2, text: "Resume", href: "#resume" },
-    { id: 3, text: "Projects", href: "#projects" },
-    { id: 4, text: "Contact", href: "#contact" }
+    { id: 0, text: t('nav.home'), href: "#home" },
+    { id: 1, text: t('nav.about'), href: "#about" },
+    { id: 2, text: t('nav.resume'), href: "#resume" },
+    { id: 3, text: t('nav.projects'), href: "#projects" },
+    { id: 4, text: t('nav.contact'), href: "#contact" }
   ];
 
   const socialLinks = [
@@ -161,7 +165,7 @@ export default function Slidebar() {
         </div>
 
         {/* Social Icons */}
-        <div className="absolute bottom-8 left-0 right-0 px-5">
+        <div className="absolute bottom-24 left-0 right-0 px-5">
           <div className="flex justify-center gap-4">
             {socialLinks.map(({ icon: Icon, url, label }) => (
               <a
@@ -176,6 +180,16 @@ export default function Slidebar() {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Theme Toggle */}
+        <div className="absolute bottom-20 left-0 right-0 px-5 flex justify-center mb-4">
+          <ThemeToggle size="md" />
+        </div>
+
+        {/* Language Toggle */}
+        <div className="absolute bottom-8 left-0 right-0 px-5 flex justify-center">
+          <LanguageToggle />
         </div>
       </aside>
     </>

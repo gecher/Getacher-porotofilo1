@@ -3,22 +3,25 @@ import Typewriter from "typewriter-effect";
 import GraphemeSplitter from "grapheme-splitter";
 import "../../App.css";
 import { AnimatedSection } from '../common/LayoutComponents';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Home Component
  * Hero section with animated typewriter effect
  */
 const Home = memo(function Home() {
+  const { t, i18n } = useTranslation();
+  
   const stringSplitter = useCallback((string) => {
     const splitter = new GraphemeSplitter();
     return splitter.splitGraphemes(string);
   }, []);
 
   const typewriterStrings = [
-    "✋ Hi, I'm Getacher Ashebir",
-    "💻 Passionate Full-Stack 🌐 Developer",
-    "✈️ Software Developer at Ethiopian Airlines",
-    "📬 Let's connect! Reach me via email or LinkedIn 🤝",
+    `✋ ${t('home.title')}`,
+    `💻 ${t('home.subtitle1')}`,
+    `✈️ ${t('home.subtitle2')}`,
+    `📬 ${t('home.subtitle3')}`,
   ];
 
   const scrollToContact = useCallback(() => {
@@ -36,11 +39,12 @@ const Home = memo(function Home() {
     >
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-wide pb-6 text-white">
-          Welcome
+          {t('home.welcome')}
         </h1>
         
         <div className="text-2xl sm:text-3xl md:text-4xl text-yellow-400 pb-12 min-h-[120px] flex items-center justify-center">
           <Typewriter
+            key={i18n.language} // Reset when language changes
             options={
               {
                 strings: typewriterStrings,
@@ -73,9 +77,9 @@ const Home = memo(function Home() {
         <button 
           onClick={scrollToContact}
           className="py-3 px-8 text-lg font-semibold border-2 border-blue-500 rounded-md hover:-translate-y-1 hover:bg-blue-600 hover:border-blue-400 transition-all duration-300 transform hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-          aria-label="Contact Getacher"
+          aria-label={t('home.contactBtn')}
         >
-          Contact Me
+          {t('home.contactBtn')}
         </button>
       </div>
     </AnimatedSection>
